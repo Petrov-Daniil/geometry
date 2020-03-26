@@ -5,8 +5,7 @@
 #include <ctype.h>
 #include <iostream>
 
-
-void pars(char name[], float a[]) 
+void pars(char name[], float a[])
 {
     char ch[10];
     int i = 0, j = 0, k = 0, m = 0;
