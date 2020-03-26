@@ -5,18 +5,16 @@
 #include <ctype.h>
 #include <iostream>
 
+
+
 void pars(char name[], float a[]) 
 {
     char ch[10];
     int i = 0, j = 0, k = 0, m = 0;
-    while (name[i] != '\0') 
-    {
-        if (isdigit(name[i])) 
-        {
-            if (name[i + 1] == '.' || isdigit(name[i + 1]) != 0) 
-            {
-                while (name[i] != ')' && name[i] != ' ' && name[i] != ',') 
-                {
+    while (name[i] != '\0') {
+        if (isdigit(name[i])) {
+            if (name[i + 1] == '.' || isdigit(name[i + 1]) != 0) {
+                while (name[i] != ')' && name[i] != ' ' && name[i] != ',') {
                     ch[m] = name[i];
                     ++m;
                     ++i;
