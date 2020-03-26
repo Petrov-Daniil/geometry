@@ -1,31 +1,63 @@
-#include <iostream>
 #include <cmath>
-#include <cstring>
-#include <cstdlib>
 #include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <ctype.h>
+#include <iostream>
 
 using namespace std;
 
-double P = 3.1415;
+float P = 3.1415;
 
-void circle(double x, double y, double r) {
-    float per = 2 * P * r;
-    float area = P * pow(r, 2);
-    cout << "circle(" << x << " " << y << ", " << r << ")" << endl <<
-         " perimetr = " << per << endl << " area = " << area << endl;
+void pars(char name[], float a[]) {
+    char ch[10];
+    int i = 0, j = 0, k = 0, m = 0;
+    while (name[i] != '\0') {
+        if (isdigit(name[i])) {
+            if (name[i + 1] == '.' || isdigit(name[i + 1]) != 0) {
+                while (name[i] != ')' && name[i] != ' ' && name[i] != ',') {
+                    ch[m] = name[i];
+                    ++m;
+                    ++i;
+                    ch[m] = '\0';
+                }
+                a[j] = atof(ch);
+                ++j;
+                m = 0;
+                ch[1] = '\0';
+                ch[2] = '\0';
+                ch[3] = '\0';
+                ch[4] = '\0';
+                ch[5] = '\0';
+                ch[6] = '\0';
+                ch[7] = '\0';
+                ch[8] = '\0';
+                ch[9] = '\0';
+            } else {
+                ch[k] = name[i];
+                a[j] = atof(ch);
+                ++j;
+                k = 0;
+            }
+        }
+        ++i;
+    }
+
 }
 
-struct circle {
-    string name;
-    string sc;
-    double x;
-    double y;
-    double r;
-} c;
+void circle(float x, float y, float r, char name[]) {
+    float per = 2 * P * r;
+    float area = P * pow(r, 2);
+    cout << name << endl;
+    cout << " \tperimetr = " << per << endl;
+    cout << "\tarea = " << area << endl;
+}
 
 int main() {
-    cout << "Введите фигуру: " << endl; //example circle( 0 0, 1.5)
-    cin>>c.name>>c.x>>c.y>>c.sc>>c.r;
-    circle(c.x, c.y, c.r);
-    return 0;
+    float a[3]{};
+    cout << "Введите фигуру: " << endl;
+    char name[100];
+    cin.getline(name, 100);
+    pars(name, a);
+    circle(a[0], a[1], a[2], name);
 }
