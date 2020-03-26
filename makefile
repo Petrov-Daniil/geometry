@@ -12,4 +12,4 @@ build/pars.o: src/pars.cpp
 build/circle.o: src/circle.cpp
 	g++ -Wall -Werror -c src/circle.cpp
 clean:
-	rm -rf *.o programm
+	rm -rf build/*.o
