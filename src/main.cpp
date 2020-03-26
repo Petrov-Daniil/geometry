@@ -1,5 +1,5 @@
-#include "pars.hpp"
 #include "circle.hpp"
+#include "pars.hpp"
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>
@@ -7,11 +7,7 @@
 #include <ctype.h>
 #include <iostream>
 
-
-
 using namespace std;
-
-
 
 int main() 
 {

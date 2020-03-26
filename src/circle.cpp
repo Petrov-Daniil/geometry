@@ -7,7 +7,7 @@
 
 using namespace std;
 
-float const P=3.1415;
+float const P = 3.1415;
 
 void circle(float x, float y, float r, char name[]) 
 {
