@@ -4,6 +4,7 @@
 #include <cstring>
 #include <ctype.h>
 #include <iostream>
+
 void pars(char name[], float a[]) 
 {
     char ch[10];
