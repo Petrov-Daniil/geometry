@@ -9,7 +9,8 @@ using namespace std;
 
 float const P=3.1415;
 
-void circle(float x, float y, float r, char name[]) {
+void circle(float x, float y, float r, char name[]) 
+{
     float per = 2 * P * r;
     float area = P * pow(r, 2);
     cout << name << endl;

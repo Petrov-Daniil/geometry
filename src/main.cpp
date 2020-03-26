@@ -10,7 +10,8 @@
 
 using namespace std;
 
-int main() {
+int main() 
+{
     float a[3];
     cout << "Введите фигуру: " << endl;
     char name[100];
