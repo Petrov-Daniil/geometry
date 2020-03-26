@@ -11,7 +11,7 @@
 using namespace std;
 
 int main() {
-    float a[3]{};
+    float a[3];
     cout << "Введите фигуру: " << endl;
     char name[100];
     cin.getline(name, 100);
