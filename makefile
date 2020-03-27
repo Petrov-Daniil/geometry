@@ -1,15 +1,19 @@
-all: programm
+all: bin/programm
 
-programm: src/main.o src/pars.o src/circle.o
-	g++ -Wall -Werror src/main.o src/pars.o src/circle.o
+bin/programm: build/main.o build/pars.o build/circle.o build/perimeter.o
+	g++ -Wall -Werror build/main.o build/pars.o build/circle.o build/perimeter.o -o bin/programm
 
-main.o: src/main.cpp
-	g++ -Wall -Werror -c src/main.cpp
+build/main.o: src/main.cpp
+	g++ -Wall -Werror -c src/main.cpp -o build/main.o
 
-pars.o: src/pars.cpp
-	g++ -Wall -Werror -c src/pars.cpp
+build/pars.o: src/pars.cpp
+	g++ -Wall -Werror -c src/pars.cpp -o build/pars.o
 
-circle.o: src/circle.cpp
-	g++ -Wall -Werror -c src/circle.cpp
+build/circle.o: src/circle.cpp
+	g++ -Wall -Werror -c src/circle.cpp -o build/circle.o
+
+build/perimeter.o: src/perimeter.cpp
+	g++ -Wall -Werror -c src/perimeter.cpp -o build/perimeter.o
+	
 clean:
-	rm -rf src/*.o
+	rm -rf build/*.o

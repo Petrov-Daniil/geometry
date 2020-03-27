@@ -7,11 +7,11 @@
 
 bool pars(char name[], float a[])
 {
-    char circle[7];
+    bool prov = true;
     char figure[7] = "circle";
     char ch[10];
     int i = 0, j = 0, k = 0, m = 0, t = 0;
-    if (true) {
+    if (prov) {
         while (figure[t] != '\0') {
             if (name[t] == figure[t])
                 return true;
@@ -49,4 +49,5 @@ bool pars(char name[], float a[])
             ++i;
         }
     }
+    return prov;
 }

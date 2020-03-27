@@ -25,7 +25,7 @@ int main()
             cout << " \tperimetr = " << perim << endl;
             cout << "\tarea = " << ar << endl;
         } else
-            cout << "It's not correctly";
+            cout << "It's not correctly" << endl;
     } else
-        cout << "It's not correctly";
+        cout << "It's not correctly" << endl;
 }
