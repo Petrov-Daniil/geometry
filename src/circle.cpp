@@ -9,7 +9,7 @@ using namespace std;
 
 float const P = 3.1415;
 
-void circleToarea(float x, float y, float r, char name[])
+void circleToarea(float x, float y, float r)
 {
     float area = P * pow(r, 2);
     cout << "\tarea = " << area << endl;
