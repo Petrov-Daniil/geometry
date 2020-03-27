@@ -5,18 +5,18 @@
 #include <ctype.h>
 #include <iostream>
 
-bool pars(char name[], float a[])
+int pars(char name[], float a[])
 {
-    bool prov = true;
     char figure[7] = "circle";
     char ch[10];
     int i = 0, j = 0, k = 0, m = 0, t = 0;
-    if (prov) {
+    while (true) {
         while (figure[t] != '\0') {
-            if (name[t] == figure[t])
-                return true;
-            else
-                return false;
+            if (name[t] == figure[t]) {
+                ++t;
+            } else {
+                return -1;
+            }
         }
         while (name[i] != '\0') {
             if (isdigit(name[i])) {
@@ -48,6 +48,8 @@ bool pars(char name[], float a[])
             }
             ++i;
         }
+        if (name[i] == '\0')
+            break;
     }
-    return prov;
+    return 1;
 }
