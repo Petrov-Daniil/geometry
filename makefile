@@ -1,19 +1,36 @@
-all: bin/programm
+CFLAGS = -Wall -Werror
+USER_DIR_S = build/src
+USER_DIR_T = build/test
+EXECUTABLE = bin/programm
+TEST = bin/test
 
-bin/programm: build/main.o build/pars.o build/circle.o build/perimeter.o
-	g++ -Wall -Werror build/main.o build/pars.o build/circle.o build/perimeter.o -o bin/programm
+all: $(EXECUTABLE) bin/test
 
-build/main.o: src/main.cpp
-	g++ -Wall -Werror -c src/main.cpp -o build/main.o
+$(EXECUTABLE): $(USER_DIR_S)/main.o $(USER_DIR_S)/pars.o $(USER_DIR_S)/circle.o $(USER_DIR_S)/perimeter.o
+	g++ $(CFLAGS) $(USER_DIR_S)/main.o $(USER_DIR_S)/pars.o $(USER_DIR_S)/circle.o $(USER_DIR_S)/perimeter.o -o $(EXECUTABLE)
 
-build/pars.o: src/pars.cpp
-	g++ -Wall -Werror -c src/pars.cpp -o build/pars.o
+$(USER_DIR_S)/main.o: src/main.cpp
+	g++ $(CFLAGS) -c src/main.cpp -o $(USER_DIR_S)/main.o
 
-build/circle.o: src/circle.cpp
-	g++ -Wall -Werror -c src/circle.cpp -o build/circle.o
+$(USER_DIR_S)/pars.o: src/pars.cpp
+	g++ $(CFLAGS) -c src/pars.cpp -o $(USER_DIR_S)/pars.o
 
-build/perimeter.o: src/perimeter.cpp
-	g++ -Wall -Werror -c src/perimeter.cpp -o build/perimeter.o
-	
+$(USER_DIR_S)/circle.o: src/circle.cpp
+	g++ $(CFLAGS) -c src/circle.cpp -o $(USER_DIR_S)/circle.o
+
+$(USER_DIR_S)/perimeter.o: src/perimeter.cpp
+	g++ $(CFLAGS) -c src/perimeter.cpp -o $(USER_DIR_S)/perimeter.o
+
+$(USER_DIR_T)/pars_test.o: test/pars_test.c
+	gcc $(CFLAGS) -I thirdparty -I src -c test/pars_test.c -o $(USER_DIR_T)/pars_test.o 
+
+$(USER_DIR_T)/main.o: test/main.c
+	gcc $(CFLAGS) -I thirdparty -c  test/main.c -o $(USER_DIR_T)/main.o 
+
+$(TEST): $(USER_DIR_T)/pars_test.o  $(USER_DIR_T)/main.o 
+	gcc $(CFLAGS) $(USER_DIR_T)/pars_test.o $(USER_DIR_T)/main.o -o $(TEST) 
+
 clean:
-	rm -rf build/*.o
+	rm -rf $(USER_DIR_S)/*.o
+	rm -rf $(USER_DIR_T)/*.o
+	rm -rf bin/*
