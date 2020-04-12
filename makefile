@@ -21,14 +21,14 @@ $(USER_DIR_S)/circle.o: src/circle.cpp
 $(USER_DIR_S)/perimeter.o: src/perimeter.cpp
 	g++ $(CFLAGS) -c src/perimeter.cpp -o $(USER_DIR_S)/perimeter.o
 
-$(USER_DIR_T)/test.o: test/test.c
-	gcc $(CFLAGS) -I thirdparty -I src -c test/test.c -o $(USER_DIR_T)/test.o 
+$(USER_DIR_T)/pars_test.o: test/pars_test.c
+	gcc $(CFLAGS) -I thirdparty -I src -c test/pars_test.c -o $(USER_DIR_T)/pars_test.o 
 
 $(USER_DIR_T)/main.o: test/main.c
 	gcc $(CFLAGS) -I thirdparty -c  test/main.c -o $(USER_DIR_T)/main.o 
 
-$(TEST): $(USER_DIR_T)/test.o  $(USER_DIR_T)/main.o 
-	gcc $(CFLAGS) $(USER_DIR_T)/test.o $(USER_DIR_T)/main.o -o $(TEST) 
+$(TEST): $(USER_DIR_T)/pars_test.o  $(USER_DIR_T)/main.o 
+	gcc $(CFLAGS) $(USER_DIR_T)/pars_test.o $(USER_DIR_T)/main.o -o $(TEST) 
 
 clean:
 	rm -rf $(USER_DIR_S)/*.o
