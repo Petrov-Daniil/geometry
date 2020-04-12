@@ -38,3 +38,23 @@ CTEST(parsNumber, Isnumber)
     ASSERT_EQUAL(0.5, a[1]);
     ASSERT_DBL_NEAR(2.64, a[2]);
 }
+
+CTEST(parsNumber, IsNotnumber)
+{
+    float a[3];
+    char name_one[] = "circle(1 4, a)";
+    pars(name_one, a);
+    ASSERT_EQUAL(1, a[0]);
+    ASSERT_EQUAL(4, a[1]);
+    ASSERT_EQUAL(2, a[2]);
+    char name_two[] = "circle(! g, 2.2)";
+    pars(name_two, a);
+    ASSERT_EQUAL(1, a[0]);
+    ASSERT_EQUAL(0, a[1]);
+    ASSERT_DBL_NEAR(2.2, a[2]);
+    char name_three[] = "circle(///////)";
+    pars(name_three, a);
+    ASSERT_EQUAL(1.2, a[0]);
+    ASSERT_EQUAL(0.5, a[1]);
+    ASSERT_DBL_NEAR(2.64, a[2]);
+}
