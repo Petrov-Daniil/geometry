@@ -12,7 +12,7 @@ using namespace std;
 
 int main()
 {
-    float a[3];
+    float a[3] = {0, 0, 0};
     float perim = 0, ar = 0;
     cout << "Введите фигуру: " << endl;
     char name[100];
