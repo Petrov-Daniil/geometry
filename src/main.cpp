@@ -13,19 +13,19 @@ using namespace std;
 int main()
 {
     float a[3] = {0, 0, 0};
-    float perim = 0, ar = 0;
-    cout << "Введите фигуру: " << endl;
     char name[100];
+    float perim = 0, ar = 0;
+    printf("Введите фигуру:\n");
     cin.getline(name, 100);
     if (pars(name, a) == 1) {
         perim = perimeter(a[0], a[1], a[2]);
         if (perim != 0) {
             ar = circleToarea(a[0], a[1], a[2]);
-            cout << name << endl;
-            cout << "\tperimetr = " << perim << endl;
-            cout << "\tarea = " << ar << endl;
+            printf("%s\n", name);
+            printf("\tperimetr = %f\n", perim);
+            printf("\tarea = %f\n", ar);
         } else
-            cout << "It's not correctly" << endl;
+            printf("It's not correctly\n"); 
     } else
-        cout << "It's not correctly" << endl;
+        printf("It's not correctly\n");
 }
