@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 int main()
 {
     float a[3] = {0, 0, 0};
@@ -20,7 +19,7 @@ int main()
             printf("\tperimetr = %f\n", perim);
             printf("\tarea = %f\n", ar);
         } else
-            printf("It's not correctly\n"); 
+            printf("It's not correctly\n");
     } else
         printf("It's not correctly\n");
 }
