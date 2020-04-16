@@ -1,4 +1,4 @@
-#include "../src/pars.cpp"
+#include "pars.h"
 #include "ctest.h"
 
 CTEST(pars_name, circle)
@@ -16,6 +16,8 @@ CTEST(pars_name, notCircle)
     k = pars_test_name("Circle(1 0, 2)");
     ASSERT_EQUAL(-1, k);
     k = pars_test_name("");
+    ASSERT_EQUAL(-1, k);
+    k = pars_test_name("c ircle(1 0, 2)");
     ASSERT_EQUAL(-1, k);
 }
 
