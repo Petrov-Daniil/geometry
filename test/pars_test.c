@@ -39,6 +39,11 @@ CTEST(parsNumber, Isnumber)
     ASSERT_DBL_NEAR(1.2, a[0]);
     ASSERT_DBL_NEAR(0.5, a[1]);
     ASSERT_DBL_NEAR(2.64, a[2]);
+    char name_four[] = "circle(-1.2 -0.5, 2.64)";
+    pars(name_four, a);
+    ASSERT_DBL_NEAR(-1.2, a[0]);
+    ASSERT_DBL_NEAR(-0.5, a[1]);
+    ASSERT_DBL_NEAR(2.64, a[2]);
 }
 
 CTEST(parsNumber, IsNotnumber)
@@ -58,6 +63,16 @@ CTEST(parsNumber, IsNotnumber)
     a[0] = 0, a[1] = 0, a[2] = 0;
     char name_three[] = "circle(///////)";
     pars(name_three, a);
+    ASSERT_EQUAL(0, a[0]);
+    ASSERT_EQUAL(0, a[1]);
+    ASSERT_EQUAL(0, a[2]);
+    char name_four[] = "circle()";
+    pars(name_four, a);
+    ASSERT_EQUAL(0, a[0]);
+    ASSERT_EQUAL(0, a[1]);
+    ASSERT_EQUAL(0, a[2]);
+    char name_five[] = "circle";
+    pars(name_five, a);
     ASSERT_EQUAL(0, a[0]);
     ASSERT_EQUAL(0, a[1]);
     ASSERT_EQUAL(0, a[2]);
