@@ -25,7 +25,10 @@ int pars(char const name[], float a[])
         if (pars_test_name(name) == 1) {
             while (name[i] != '\0') {
                 if (isdigit(name[i])) {
-                    if (name[i + 1] == '.' || isdigit(name[i + 1]) != 0) {
+                    if (name[i + 1] == '.' || isdigit(name[i + 1]) != 0
+                        || name[i - 1] == '-') {
+                        if (name[i - 1] == '-')
+                            --i;
                         while (name[i] != ')' && name[i] != ' '
                                && name[i] != ',') {
                             ch[m] = name[i];
